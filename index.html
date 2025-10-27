@@ -8,24 +8,55 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="">Todo List</h1>
-    <div>
-        <div>
-            <label>Task Title</label>
-            <input type="text" placeholder="Enter task title"/>
-        </div>
-        
-        <div>
-            <label>Priority</label>
-            <input type="text" placeholder="Enter task title"/>
+    <div class="bg-blue-50 min-h-[100vh] p-2">
+        <h1 class="text-center font-bold text-[20px] m-1">Todo List</h1>
+        <div class="bg-[white] rounded-[5px] w-[50%] m-[auto] p-5 m-2">
+            <div class="flex flex-col m-4">
+                <label class="text-[12px] font-bold">Task Title</label>
+                <input id="title" class="text-[15px]" type="text" placeholder="Enter task title"/>
+            </div>
+            
+            <div class="flex flex-col m-4">
+                <label class="text-[12px] font-bold">Priority</label>
+                <select id="priorityDropdown" class="text-[12px] rounded-[5px] p-1">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+
+            <div class="flex flex-col m-4">
+                <label class="text-[12px] font-bold">Deadline</label>
+                <input id="deadline" class="text-[15px]" type="date" placeholder="Enter task title"/>
+            </div>
+
+            <!-- The elements inside it are treated as flex items and not any block or inline elements -->
+            <div class="flex">   
+                <button id="addTask" class="ml-auto bg-blue-500 rounded-[5px] text-[15px] text-[white] p-2">+ Add Task</button>
+            </div>
         </div>
 
-        <div>
-            <label>Deadline</label>
-            <input type="date" placeholder="Enter task title"/>
+        <div class="flex flex-row justify-center w-[50%] m-auto mt-5 mb-2">
+            <div class="flex flex-col w-[49.5%] mr-1">
+                <label class="text-[12px] font-bold">Status</label>
+                <select id="myDropdown" class="text-[12px] rounded-[5px] p-1">
+                    <option value="apple">High</option>
+                    <option value="banana">Medium</option>
+                    <option value="cherry">Low</option>
+                </select>
+            </div>
+
+            <div class="flex flex-col w-[49.5%] ml-1">
+                <label class="text-[12px] font-bold">Priority</label>
+                <select id="myDropdown" class="text-[12px] rounded-[5px] p-1">
+                    <option value="apple">High</option>
+                    <option value="banana">Medium</option>
+                    <option value="cherry">Low</option>
+                </select>
+            </div>
         </div>
 
-        <button>+ Add Task</button>
+        <div id="taskItems" class="m-2"></div>
     </div>
     <script src="script.js"></script>
 </body>
