@@ -5,7 +5,7 @@ let title = document.getElementById("title");
 let priorityDropdown = document.getElementById("priorityDropdown");
 let deadline = document.getElementById("deadline");
 let id = localStorageArray.length;
-const btnIdMapping = new Map();
+const btnIdMapping = [];
 
 addTask.onclick = function () {
   id = id + 1;
@@ -86,18 +86,20 @@ function updateDataOnUI() {
         deleteTask.classList.add("bg-blue-500", "rounded-[5px]", "p-2", "text-[10px]", "font-bold", "h-[30px]");
         taskCard.appendChild(deleteTask);    
 
-        deleteBtnArray.push(deleteTask);
-        console.log(deleteBtnArray);
+        btnIdMapping.push(deleteTask);
+        console.log(btnIdMapping);
 
-        btnIdMapping.set(index.itemId, deleteTask);
+        btnIdMapping.push({
+           deleteItemTask: deleteTask,
+           id: index.itemId,
+        });
     }
 }
 updateDataOnUI();
 
-
-function deletingTasks(){
-    for(let index of localStorageArray){
-        
-    };
-}
+btnIdMapping.deleteItemTask.addEventListner('click', function(){
+    localStorageArray.splice((index.id)-1, 1);
+    localStorage.setItem("array", JSON.stringify(localStorageArray)); //to JSON
+    deleteBtn=true;
+})
 
